@@ -11,6 +11,7 @@ import UIKit
 class HomeTableViewController: UITableViewController {
 
     let images = ["Pasta Salad","Pancakes", "Sour Cream Meat Tacos"]
+   
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -19,6 +20,10 @@ class HomeTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        tableView.separatorColor = UIColor(hexString: "F7F7F7")
+        tableView.backgroundColor = UIColor(hexString: "F7F7F7")
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -35,18 +40,45 @@ class HomeTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return images.count
+        return images.count + 1
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "HomeCell", for: indexPath) as! CustomCell
-
-        // Configure the cell...
-        cell.mainImage.image = UIImage(named: images[indexPath.row])
-        cell.nameLabel.text = images[indexPath.row]
         
-        return cell
+       
+        
+        if indexPath.row == 0 {
+            let firstCell = tableView.dequeueReusableCell(withIdentifier: "FeaturedCell", for: indexPath) as! CustomFeaturedCellTableViewCell
+            
+            
+            return firstCell
+        }
+        else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "HomeCell", for: indexPath) as! CustomCell
+            cell.mainImage.image = UIImage(named: images[indexPath.row - 1])
+            cell.nameLabel.text = images[indexPath.row - 1]
+            cell.contentView.backgroundColor = UIColor(hexString: "F7F7F7")
+            //cell.selectionStyle = UITableViewCellSelectionStyle.none
+            
+            let bgColorView = UIView()
+            bgColorView.backgroundColor = UIColor.white
+            cell.selectedBackgroundView = bgColorView
+            
+            return cell
+        }
+        
+        
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
+    {
+        if indexPath.row == 0 {
+        return 200;//Choose your custom row height
+        }
+        else{
+            return self.tableView.rowHeight
+        }
     }
     
 
