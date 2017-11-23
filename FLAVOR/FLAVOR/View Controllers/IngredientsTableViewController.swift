@@ -1,20 +1,23 @@
 //
-//  CategoryTableViewController.swift
+//  IngredientsTableViewController.swift
 //  FLAVOR
 //
-//  Created by Lukáš Lipovský on 04/11/2017.
+//  Created by Lukáš Lipovský on 23/11/2017.
 //  Copyright © 2017 Lukáš Lipovský. All rights reserved.
 //
 
 import UIKit
 
-class CategoryTableViewController: UITableViewController{
+class IngredientsTableViewController: UITableViewController {
 
-    // Properties
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
+        // Uncomment the following line to preserve selection between presentations
+        // self.clearsSelectionOnViewWillAppear = false
+
+        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
     override func didReceiveMemoryWarning() {

@@ -28,6 +28,10 @@
 		69BF32DD1FAF4652007B2339 /* Montserrat-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 69BF32DB1FAF4651007B2339 /* Montserrat-Light.otf */; };
 		69BF32DF1FAF69B8007B2339 /* CustomFeaturedCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BF32DE1FAF69B8007B2339 /* CustomFeaturedCellTableViewCell.swift */; };
 		69BF32E11FAFA6D4007B2339 /* CustomContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BF32E01FAFA6D4007B2339 /* CustomContent.swift */; };
+		69CD3E011FC6EBE6006A54F2 /* RecipeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69CD3E001FC6EBE6006A54F2 /* RecipeModel.swift */; };
+		69CD3E031FC6EDA3006A54F2 /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69CD3E021FC6EDA3006A54F2 /* HomeModel.swift */; };
+		69CD3E071FC71867006A54F2 /* RecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69CD3E061FC71867006A54F2 /* RecipeViewController.swift */; };
+		69CD3E091FC72AC8006A54F2 /* IngredientsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69CD3E081FC72AC8006A54F2 /* IngredientsTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -68,6 +72,10 @@
 		69BF32DB1FAF4651007B2339 /* Montserrat-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Light.otf"; sourceTree = "<group>"; };
 		69BF32DE1FAF69B8007B2339 /* CustomFeaturedCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFeaturedCellTableViewCell.swift; sourceTree = "<group>"; };
 		69BF32E01FAFA6D4007B2339 /* CustomContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomContent.swift; sourceTree = "<group>"; };
+		69CD3E001FC6EBE6006A54F2 /* RecipeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeModel.swift; sourceTree = "<group>"; };
+		69CD3E021FC6EDA3006A54F2 /* HomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
+		69CD3E061FC71867006A54F2 /* RecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeViewController.swift; sourceTree = "<group>"; };
+		69CD3E081FC72AC8006A54F2 /* IngredientsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientsTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +119,7 @@
 				699A57D71FAE222A0056CDA8 /* Assets.xcassets */,
 				699A57D91FAE222A0056CDA8 /* LaunchScreen.storyboard */,
 				699A57DC1FAE222A0056CDA8 /* Info.plist */,
+				69CD3E051FC7183E006A54F2 /* Models */,
 			);
 			path = FLAVOR;
 			sourceTree = "<group>";
@@ -145,6 +154,8 @@
 				699A57FB1FAE4F110056CDA8 /* CategoryTableViewController.swift */,
 				699A57FD1FAE4F1D0056CDA8 /* FavouritesTableViewController.swift */,
 				699A57FF1FAE4F3C0056CDA8 /* ProfileViewController.swift */,
+				69CD3E061FC71867006A54F2 /* RecipeViewController.swift */,
+				69CD3E081FC72AC8006A54F2 /* IngredientsTableViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -157,6 +168,15 @@
 				69BF32DA1FAF4650007B2339 /* Montserrat-Regular.otf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		69CD3E051FC7183E006A54F2 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				69CD3E001FC6EBE6006A54F2 /* RecipeModel.swift */,
+				69CD3E021FC6EDA3006A54F2 /* HomeModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -235,6 +255,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				69CD3E091FC72AC8006A54F2 /* IngredientsTableViewController.swift in Sources */,
 				699A57FC1FAE4F110056CDA8 /* CategoryTableViewController.swift in Sources */,
 				69BF32D51FAF4084007B2339 /* CustomHomeDesignView.swift in Sources */,
 				69BF32DF1FAF69B8007B2339 /* CustomFeaturedCellTableViewCell.swift in Sources */,
@@ -242,9 +263,12 @@
 				69277B971FAE7E4C0068F01D /* CustomCell.swift in Sources */,
 				69BF32E11FAFA6D4007B2339 /* CustomContent.swift in Sources */,
 				699A57F41FAE34D00056CDA8 /* CustomButton.swift in Sources */,
+				69CD3E011FC6EBE6006A54F2 /* RecipeModel.swift in Sources */,
+				69CD3E031FC6EDA3006A54F2 /* HomeModel.swift in Sources */,
 				699A57F61FAE39A90056CDA8 /* CustomLabel.swift in Sources */,
 				699A57D11FAE222A0056CDA8 /* AppDelegate.swift in Sources */,
 				699A57FE1FAE4F1D0056CDA8 /* FavouritesTableViewController.swift in Sources */,
+				69CD3E071FC71867006A54F2 /* RecipeViewController.swift in Sources */,
 				699A58001FAE4F3C0056CDA8 /* ProfileViewController.swift in Sources */,
 				699A57F21FAE282F0056CDA8 /* LoginSignUpViewController.swift in Sources */,
 				699A57EF1FAE26C60056CDA8 /* CustomColor.swift in Sources */,

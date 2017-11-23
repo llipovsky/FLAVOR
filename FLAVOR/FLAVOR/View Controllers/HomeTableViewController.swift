@@ -8,10 +8,12 @@
 
 import UIKit
 
-class HomeTableViewController: UITableViewController {
-
-    let images = ["Pasta Salad","Pancakes", "Sour Cream Meat Tacos"]
+class HomeTableViewController: UITableViewController, HomeModelProtocol {
    
+    let images = ["Pasta Salad","Pancakes", "Sour Cream Meat Tacos"]
+    var feedItems: NSArray = NSArray()
+    var selectedRecipe : RecipeModel = RecipeModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -24,8 +26,18 @@ class HomeTableViewController: UITableViewController {
         tableView.separatorColor = UIColor(hexString: "F7F7F7")
         tableView.backgroundColor = UIColor(hexString: "F7F7F7")
         
+        let homeModel = HomeModel()
+        homeModel.delegate = self
+        homeModel.downloadItems()
+        
+    }
+    // HomeModelProtocol
+    func itemsDownloaded(items: NSArray) {
+        feedItems = items
+        self.tableView.reloadData()
     }
 
+    //
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -40,7 +52,8 @@ class HomeTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return images.count + 1
+        //return images.count + 1
+        return feedItems.count + 1
     }
 
     
@@ -56,11 +69,32 @@ class HomeTableViewController: UITableViewController {
         }
         else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "HomeCell", for: indexPath) as! CustomCell
+            /*
             cell.mainImage.image = UIImage(named: images[indexPath.row - 1])
             cell.nameLabel.text = images[indexPath.row - 1]
             cell.contentView.backgroundColor = UIColor(hexString: "F7F7F7")
             //cell.selectionStyle = UITableViewCellSelectionStyle.none
             
+            let bgColorView = UIView()
+            bgColorView.backgroundColor = UIColor.white
+            cell.selectedBackgroundView = bgColorView
+ 
+            return cell
+ */
+            
+            // Get the location to be shown
+            let item: RecipeModel = feedItems[indexPath.row - 1] as! RecipeModel
+            
+            cell.mainImage.image = UIImage(named: images[1])
+            
+            cell.nameLabel.text = item.name
+            cell.categoryLabel.text = item.category
+            cell.difficultyLabel.text = item.difficulty
+            cell.minutesLabel.text = item.cooking_time
+            cell.peopleLabel.text = item.serving
+            
+            cell.contentView.backgroundColor = UIColor(hexString: "F7F7F7")
+           
             let bgColorView = UIView()
             bgColorView.backgroundColor = UIColor.white
             cell.selectedBackgroundView = bgColorView
@@ -117,14 +151,25 @@ class HomeTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
+     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // Set selected location to var
+        selectedRecipe = feedItems[indexPath.row - 1] as! RecipeModel
+        // Manually call segue to detail view controller
+        self.performSegue(withIdentifier: "recipeSegue", sender: self)
+    }
+    
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        // Get reference to the destination view controller
+        let detailVC  = segue.destination as! RecipeViewController
+        // Set the property to the selected location so when the view for
+        // detail view controller loads, it can access that property to get the feeditem obj
+        detailVC.selectedRecipe = selectedRecipe
     }
-    */
+ 
 
 }
