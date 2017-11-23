@@ -31,7 +31,6 @@
 		69CD3E011FC6EBE6006A54F2 /* RecipeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69CD3E001FC6EBE6006A54F2 /* RecipeModel.swift */; };
 		69CD3E031FC6EDA3006A54F2 /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69CD3E021FC6EDA3006A54F2 /* HomeModel.swift */; };
 		69CD3E071FC71867006A54F2 /* RecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69CD3E061FC71867006A54F2 /* RecipeViewController.swift */; };
-		69CD3E091FC72AC8006A54F2 /* IngredientsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69CD3E081FC72AC8006A54F2 /* IngredientsTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -75,7 +74,6 @@
 		69CD3E001FC6EBE6006A54F2 /* RecipeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeModel.swift; sourceTree = "<group>"; };
 		69CD3E021FC6EDA3006A54F2 /* HomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
 		69CD3E061FC71867006A54F2 /* RecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeViewController.swift; sourceTree = "<group>"; };
-		69CD3E081FC72AC8006A54F2 /* IngredientsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientsTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,7 +153,6 @@
 				699A57FD1FAE4F1D0056CDA8 /* FavouritesTableViewController.swift */,
 				699A57FF1FAE4F3C0056CDA8 /* ProfileViewController.swift */,
 				69CD3E061FC71867006A54F2 /* RecipeViewController.swift */,
-				69CD3E081FC72AC8006A54F2 /* IngredientsTableViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -255,7 +252,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				69CD3E091FC72AC8006A54F2 /* IngredientsTableViewController.swift in Sources */,
 				699A57FC1FAE4F110056CDA8 /* CategoryTableViewController.swift in Sources */,
 				69BF32D51FAF4084007B2339 /* CustomHomeDesignView.swift in Sources */,
 				69BF32DF1FAF69B8007B2339 /* CustomFeaturedCellTableViewCell.swift in Sources */,

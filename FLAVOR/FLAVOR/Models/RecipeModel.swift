@@ -19,6 +19,8 @@ class RecipeModel: NSObject {
     var cooking_time: String?
     var difficulty: String?
     var serving: String?
+    var ingredients: [String]?
+    var instructions: [String]?
     
     override init() {
         

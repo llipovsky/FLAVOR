@@ -57,6 +57,8 @@ class HomeModel: NSObject, URLSessionDataDelegate {
         
         var jsonElement = NSDictionary()
         let recipes = NSMutableArray()
+        var ingredientsDictionary: [Int: [String]] = [:]
+        var instructionsDictionary: [Int: [String]] = [:]
         
         for i in 0 ..< jsonResult.count
         {
@@ -82,11 +84,54 @@ class HomeModel: NSObject, URLSessionDataDelegate {
                 recipe.difficulty = difficulty
                 recipe.serving = serving
                 
+                recipes.add(recipe)
+                
             }
+            else if let ingredience = jsonElement["ingredients"] as? String,
+                let recipeID = Int((jsonElement["recipeID"] as? String)!) {
             
-            recipes.add(recipe)
+                if (ingredientsDictionary[recipeID] == nil) {
+                    ingredientsDictionary[recipeID] = [ingredience]
+                }
+                else {
+                ingredientsDictionary[recipeID]?.append(ingredience)
+                }
+        
+            }
+            else if let instruction = jsonElement["instructions"] as? String,
+                let recipeID = Int((jsonElement["intructionsRecipeID"] as? String)!) {
+                
+                if (instructionsDictionary[recipeID] == nil) {
+                    instructionsDictionary[recipeID] = [instruction]
+                }
+                else {
+                    instructionsDictionary[recipeID]?.append(instruction)
+                }
+           
             
+            }
+        
         }
+        
+        for i in ingredientsDictionary {
+            for r in recipes {
+                let recipe: RecipeModel = r as! RecipeModel
+                if Int(recipe.id!) == i.key {
+                    recipe.ingredients = i.value
+                }
+            }
+        }
+      
+        for i in instructionsDictionary {
+            for r in recipes {
+                let recipe: RecipeModel = r as! RecipeModel
+                if Int(recipe.id!) == i.key {
+                    recipe.instructions = i.value
+                }
+            }
+        }
+        
+        
         
         DispatchQueue.main.async(execute: { () -> Void in
             
@@ -95,3 +140,4 @@ class HomeModel: NSObject, URLSessionDataDelegate {
         })
     }
 }
+
