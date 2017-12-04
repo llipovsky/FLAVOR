@@ -22,6 +22,7 @@
 		699A57FC1FAE4F110056CDA8 /* CategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 699A57FB1FAE4F110056CDA8 /* CategoryTableViewController.swift */; };
 		699A57FE1FAE4F1D0056CDA8 /* FavouritesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 699A57FD1FAE4F1D0056CDA8 /* FavouritesTableViewController.swift */; };
 		699A58001FAE4F3C0056CDA8 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 699A57FF1FAE4F3C0056CDA8 /* ProfileViewController.swift */; };
+		69ABE0F21FD457F000AD14A3 /* CustomInstructionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69ABE0F11FD457F000AD14A3 /* CustomInstructionTableViewCell.swift */; };
 		69BF32D51FAF4084007B2339 /* CustomHomeDesignView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BF32D41FAF4084007B2339 /* CustomHomeDesignView.swift */; };
 		69BF32D91FAF45BC007B2339 /* Montserrat-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 69BF32D81FAF45BB007B2339 /* Montserrat-Medium.otf */; };
 		69BF32DC1FAF4652007B2339 /* Montserrat-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 69BF32DA1FAF4650007B2339 /* Montserrat-Regular.otf */; };
@@ -65,6 +66,7 @@
 		699A57FB1FAE4F110056CDA8 /* CategoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewController.swift; sourceTree = "<group>"; };
 		699A57FD1FAE4F1D0056CDA8 /* FavouritesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesTableViewController.swift; sourceTree = "<group>"; };
 		699A57FF1FAE4F3C0056CDA8 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		69ABE0F11FD457F000AD14A3 /* CustomInstructionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomInstructionTableViewCell.swift; sourceTree = "<group>"; };
 		69BF32D41FAF4084007B2339 /* CustomHomeDesignView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomHomeDesignView.swift; sourceTree = "<group>"; };
 		69BF32D81FAF45BB007B2339 /* Montserrat-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Medium.otf"; sourceTree = "<group>"; };
 		69BF32DA1FAF4650007B2339 /* Montserrat-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.otf"; sourceTree = "<group>"; };
@@ -74,6 +76,7 @@
 		69CD3E001FC6EBE6006A54F2 /* RecipeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeModel.swift; sourceTree = "<group>"; };
 		69CD3E021FC6EDA3006A54F2 /* HomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
 		69CD3E061FC71867006A54F2 /* RecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeViewController.swift; sourceTree = "<group>"; };
+		69F37DA01FCCB8D600BA2758 /* FontAwesome.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome.otf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +143,7 @@
 				69BF32D41FAF4084007B2339 /* CustomHomeDesignView.swift */,
 				69BF32DE1FAF69B8007B2339 /* CustomFeaturedCellTableViewCell.swift */,
 				69BF32E01FAFA6D4007B2339 /* CustomContent.swift */,
+				69ABE0F11FD457F000AD14A3 /* CustomInstructionTableViewCell.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -160,6 +164,7 @@
 		69BF32D61FAF4597007B2339 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				69F37DA01FCCB8D600BA2758 /* FontAwesome.otf */,
 				69BF32D81FAF45BB007B2339 /* Montserrat-Medium.otf */,
 				69BF32DB1FAF4651007B2339 /* Montserrat-Light.otf */,
 				69BF32DA1FAF4650007B2339 /* Montserrat-Regular.otf */,
@@ -261,6 +266,7 @@
 				699A57F41FAE34D00056CDA8 /* CustomButton.swift in Sources */,
 				69CD3E011FC6EBE6006A54F2 /* RecipeModel.swift in Sources */,
 				69CD3E031FC6EDA3006A54F2 /* HomeModel.swift in Sources */,
+				69ABE0F21FD457F000AD14A3 /* CustomInstructionTableViewCell.swift in Sources */,
 				699A57F61FAE39A90056CDA8 /* CustomLabel.swift in Sources */,
 				699A57D11FAE222A0056CDA8 /* AppDelegate.swift in Sources */,
 				699A57FE1FAE4F1D0056CDA8 /* FavouritesTableViewController.swift in Sources */,
