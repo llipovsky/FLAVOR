@@ -10,10 +10,21 @@ import UIKit
 
 class CategoryTableViewController: UITableViewController{
 
+    var feedItems: NSArray = NSArray()
+    var categories: [String] = [String]()
+    
     // Properties
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        if feedItems.count > 0 {
+            for item in feedItems {
+                let recipe = item as! RecipeModel
+                categories.append(recipe.category!)
+            }
+            
+            categories = Array(Set(categories))
+        }
         
     }
 
@@ -26,23 +37,35 @@ class CategoryTableViewController: UITableViewController{
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return categories.count + 1
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
+        
+        
+        if(indexPath.row == 0) {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "categoryTitleCell", for: indexPath) as! CustomCategoryTitleCell
+            //cell.label.text = categories[indexPath.row]
+            return cell
+          
+        }
+        else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "categoryCell", for: indexPath) as! CustomCategoryCell
+            cell.label.text = categories[indexPath.row - 1]
+            return cell
+        }
+       
         // Configure the cell...
-
-        return cell
+        
+       
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.

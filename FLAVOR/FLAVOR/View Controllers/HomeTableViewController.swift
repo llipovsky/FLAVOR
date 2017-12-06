@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HomeTableViewController: UITableViewController, HomeModelProtocol {
+class HomeTableViewController: UITableViewController, HomeModelProtocol, UITabBarControllerDelegate{
    
     let images = ["Pasta Salad","Pancakes", "Sour Cream Meat Tacos"]
     var feedItems: NSArray = NSArray()
@@ -30,11 +30,17 @@ class HomeTableViewController: UITableViewController, HomeModelProtocol {
         homeModel.delegate = self
         homeModel.downloadItems()
         
+        //self.tabBarController?.delegate = self
     }
     // HomeModelProtocol
     func itemsDownloaded(items: NSArray) {
         feedItems = items
         self.tableView.reloadData()
+        
+        let navController = self.tabBarController?.viewControllers![1] as! UINavigationController
+        let vc = navController.topViewController as! CategoryTableViewController
+        vc.feedItems = feedItems
+        
     }
 
     //
@@ -52,7 +58,6 @@ class HomeTableViewController: UITableViewController, HomeModelProtocol {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        //return images.count + 1
         return feedItems.count + 1
     }
 
@@ -69,19 +74,7 @@ class HomeTableViewController: UITableViewController, HomeModelProtocol {
         }
         else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "HomeCell", for: indexPath) as! CustomCell
-            /*
-            cell.mainImage.image = UIImage(named: images[indexPath.row - 1])
-            cell.nameLabel.text = images[indexPath.row - 1]
-            cell.contentView.backgroundColor = UIColor(hexString: "F7F7F7")
-            //cell.selectionStyle = UITableViewCellSelectionStyle.none
-            
-            let bgColorView = UIView()
-            bgColorView.backgroundColor = UIColor.white
-            cell.selectedBackgroundView = bgColorView
- 
-            return cell
- */
-            
+           
             // Get the location to be shown
             let item: RecipeModel = feedItems[indexPath.row - 1] as! RecipeModel
             
@@ -154,9 +147,16 @@ class HomeTableViewController: UITableViewController, HomeModelProtocol {
     
      override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // Set selected location to var
-        selectedRecipe = feedItems[indexPath.row - 1] as! RecipeModel
+        if(indexPath.row == 0) {
+            return
+        }
+        else {
+            selectedRecipe = feedItems[indexPath.row - 1] as! RecipeModel
+             self.performSegue(withIdentifier: "recipeSegue", sender: self)
+        }
+        
         // Manually call segue to detail view controller
-        self.performSegue(withIdentifier: "recipeSegue", sender: self)
+       
     }
     
     
@@ -165,10 +165,11 @@ class HomeTableViewController: UITableViewController, HomeModelProtocol {
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get reference to the destination view controller
-        let detailVC  = segue.destination as! RecipeViewController
+        let detailVC  = segue.destination as! RecipeTableViewController
         // Set the property to the selected location so when the view for
         // detail view controller loads, it can access that property to get the feeditem obj
         detailVC.selectedRecipe = selectedRecipe
+    
     }
  
 
