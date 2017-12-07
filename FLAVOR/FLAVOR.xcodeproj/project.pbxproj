@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6902E73D1FD9599600FB8237 /* CustomRecipeBlockCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6902E73B1FD9599600FB8237 /* CustomRecipeBlockCell.swift */; };
+		6902E73E1FD9599600FB8237 /* CustomRecipeBlockCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6902E73C1FD9599600FB8237 /* CustomRecipeBlockCell.xib */; };
+		6902E7411FD970B300FB8237 /* CustomFullWidthImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6902E73F1FD970B300FB8237 /* CustomFullWidthImageCell.swift */; };
+		6902E7421FD970B300FB8237 /* CustomFullWidthImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6902E7401FD970B300FB8237 /* CustomFullWidthImageCell.xib */; };
+		6902E7441FD971C200FB8237 /* ListOfCategoriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6902E7431FD971C200FB8237 /* ListOfCategoriesTableViewController.swift */; };
+		6902E7461FD97D4700FB8237 /* Montserrat-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6902E7451FD97D4500FB8237 /* Montserrat-Bold.otf */; };
+		6902E7481FD97D5700FB8237 /* Montserrat-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6902E7471FD97D5400FB8237 /* Montserrat-SemiBold.otf */; };
+		6902E74A1FD97ECE00FB8237 /* CustomListCategoryTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6902E7491FD97ECE00FB8237 /* CustomListCategoryTitleCell.swift */; };
+		6902E74C1FD97EDC00FB8237 /* CustomListCategoryCountCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6902E74B1FD97EDC00FB8237 /* CustomListCategoryCountCell.swift */; };
+		6902E74F1FD9964400FB8237 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6902E74D1FD9964400FB8237 /* Model.xcdatamodeld */; };
 		691FDABE1FD88F5800B2CA7C /* Mark Simonson - Proxima Nova Alt Bold-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 691FDABD1FD88F5600B2CA7C /* Mark Simonson - Proxima Nova Alt Bold-webfont.ttf */; };
 		691FDAC01FD8AB7200B2CA7C /* CustomCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 691FDABF1FD8AB7200B2CA7C /* CustomCategoryCell.swift */; };
 		691FDAC21FD8AB8000B2CA7C /* CustomCategoryTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 691FDAC11FD8AB8000B2CA7C /* CustomCategoryTitleCell.swift */; };
@@ -57,6 +67,16 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		6902E73B1FD9599600FB8237 /* CustomRecipeBlockCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomRecipeBlockCell.swift; sourceTree = "<group>"; };
+		6902E73C1FD9599600FB8237 /* CustomRecipeBlockCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomRecipeBlockCell.xib; sourceTree = "<group>"; };
+		6902E73F1FD970B300FB8237 /* CustomFullWidthImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFullWidthImageCell.swift; sourceTree = "<group>"; };
+		6902E7401FD970B300FB8237 /* CustomFullWidthImageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomFullWidthImageCell.xib; sourceTree = "<group>"; };
+		6902E7431FD971C200FB8237 /* ListOfCategoriesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfCategoriesTableViewController.swift; sourceTree = "<group>"; };
+		6902E7451FD97D4500FB8237 /* Montserrat-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.otf"; sourceTree = "<group>"; };
+		6902E7471FD97D5400FB8237 /* Montserrat-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBold.otf"; sourceTree = "<group>"; };
+		6902E7491FD97ECE00FB8237 /* CustomListCategoryTitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomListCategoryTitleCell.swift; sourceTree = "<group>"; };
+		6902E74B1FD97EDC00FB8237 /* CustomListCategoryCountCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomListCategoryCountCell.swift; sourceTree = "<group>"; };
+		6902E74E1FD9964400FB8237 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		691FDABD1FD88F5600B2CA7C /* Mark Simonson - Proxima Nova Alt Bold-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mark Simonson - Proxima Nova Alt Bold-webfont.ttf"; sourceTree = "<group>"; };
 		691FDABF1FD8AB7200B2CA7C /* CustomCategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCategoryCell.swift; sourceTree = "<group>"; };
 		691FDAC11FD8AB8000B2CA7C /* CustomCategoryTitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCategoryTitleCell.swift; sourceTree = "<group>"; };
@@ -167,6 +187,12 @@
 				69A6E6371FD73E8C00EADD42 /* CustomRecipeInstructionsCell.swift */,
 				691FDABF1FD8AB7200B2CA7C /* CustomCategoryCell.swift */,
 				691FDAC11FD8AB8000B2CA7C /* CustomCategoryTitleCell.swift */,
+				6902E73B1FD9599600FB8237 /* CustomRecipeBlockCell.swift */,
+				6902E73C1FD9599600FB8237 /* CustomRecipeBlockCell.xib */,
+				6902E73F1FD970B300FB8237 /* CustomFullWidthImageCell.swift */,
+				6902E7401FD970B300FB8237 /* CustomFullWidthImageCell.xib */,
+				6902E7491FD97ECE00FB8237 /* CustomListCategoryTitleCell.swift */,
+				6902E74B1FD97EDC00FB8237 /* CustomListCategoryCountCell.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -180,6 +206,7 @@
 				699A57FD1FAE4F1D0056CDA8 /* FavouritesTableViewController.swift */,
 				699A57FF1FAE4F3C0056CDA8 /* ProfileViewController.swift */,
 				69A6E6291FD6F98800EADD42 /* RecipeTableViewController.swift */,
+				6902E7431FD971C200FB8237 /* ListOfCategoriesTableViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -187,6 +214,8 @@
 		69BF32D61FAF4597007B2339 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				6902E7471FD97D5400FB8237 /* Montserrat-SemiBold.otf */,
+				6902E7451FD97D4500FB8237 /* Montserrat-Bold.otf */,
 				69F37DA01FCCB8D600BA2758 /* FontAwesome.otf */,
 				69BF32D81FAF45BB007B2339 /* Montserrat-Medium.otf */,
 				69BF32DB1FAF4651007B2339 /* Montserrat-Light.otf */,
@@ -201,6 +230,7 @@
 			children = (
 				69CD3E001FC6EBE6006A54F2 /* RecipeModel.swift */,
 				69CD3E021FC6EDA3006A54F2 /* HomeModel.swift */,
+				6902E74D1FD9964400FB8237 /* Model.xcdatamodeld */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -265,10 +295,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6902E73E1FD9599600FB8237 /* CustomRecipeBlockCell.xib in Resources */,
+				6902E7421FD970B300FB8237 /* CustomFullWidthImageCell.xib in Resources */,
 				699A57DB1FAE222A0056CDA8 /* LaunchScreen.storyboard in Resources */,
 				691FDABE1FD88F5800B2CA7C /* Mark Simonson - Proxima Nova Alt Bold-webfont.ttf in Resources */,
 				69BF32D91FAF45BC007B2339 /* Montserrat-Medium.otf in Resources */,
+				6902E7461FD97D4700FB8237 /* Montserrat-Bold.otf in Resources */,
 				699A57D81FAE222A0056CDA8 /* Assets.xcassets in Resources */,
+				6902E7481FD97D5700FB8237 /* Montserrat-SemiBold.otf in Resources */,
 				69BF32DC1FAF4652007B2339 /* Montserrat-Regular.otf in Resources */,
 				699A57D61FAE222A0056CDA8 /* Main.storyboard in Resources */,
 				69BF32DD1FAF4652007B2339 /* Montserrat-Light.otf in Resources */,
@@ -282,27 +316,33 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6902E7441FD971C200FB8237 /* ListOfCategoriesTableViewController.swift in Sources */,
 				69A6E62E1FD73CE400EADD42 /* CustomRecipeImageCell.swift in Sources */,
 				69A6E6341FD73E6600EADD42 /* CustomRecipeSectionTitleCell.swift in Sources */,
 				69A6E62C1FD73B3A00EADD42 /* CustomRecipeCategoryCell.swift in Sources */,
 				699A57FC1FAE4F110056CDA8 /* CategoryTableViewController.swift in Sources */,
 				69BF32D51FAF4084007B2339 /* CustomHomeDesignView.swift in Sources */,
 				69BF32DF1FAF69B8007B2339 /* CustomFeaturedCellTableViewCell.swift in Sources */,
+				6902E7411FD970B300FB8237 /* CustomFullWidthImageCell.swift in Sources */,
 				699A57FA1FAE4EC90056CDA8 /* HomeTableViewController.swift in Sources */,
 				69277B971FAE7E4C0068F01D /* CustomCell.swift in Sources */,
 				69A6E6361FD73E7F00EADD42 /* CustomRecipeIngredientsCell.swift in Sources */,
 				699A57F41FAE34D00056CDA8 /* CustomButton.swift in Sources */,
 				69CD3E011FC6EBE6006A54F2 /* RecipeModel.swift in Sources */,
+				6902E74A1FD97ECE00FB8237 /* CustomListCategoryTitleCell.swift in Sources */,
 				69CD3E031FC6EDA3006A54F2 /* HomeModel.swift in Sources */,
 				69A6E62A1FD6F98800EADD42 /* RecipeTableViewController.swift in Sources */,
 				699A57F61FAE39A90056CDA8 /* CustomLabel.swift in Sources */,
+				6902E74F1FD9964400FB8237 /* Model.xcdatamodeld in Sources */,
 				699A57D11FAE222A0056CDA8 /* AppDelegate.swift in Sources */,
+				6902E74C1FD97EDC00FB8237 /* CustomListCategoryCountCell.swift in Sources */,
 				69A6E6381FD73E8C00EADD42 /* CustomRecipeInstructionsCell.swift in Sources */,
 				69A6E6301FD73E3600EADD42 /* CustomRecipeTitleCell.swift in Sources */,
 				699A57FE1FAE4F1D0056CDA8 /* FavouritesTableViewController.swift in Sources */,
 				699A58001FAE4F3C0056CDA8 /* ProfileViewController.swift in Sources */,
 				691FDAC21FD8AB8000B2CA7C /* CustomCategoryTitleCell.swift in Sources */,
 				699A57F21FAE282F0056CDA8 /* LoginSignUpViewController.swift in Sources */,
+				6902E73D1FD9599600FB8237 /* CustomRecipeBlockCell.swift in Sources */,
 				691FDAC01FD8AB7200B2CA7C /* CustomCategoryCell.swift in Sources */,
 				699A57EF1FAE26C60056CDA8 /* CustomColor.swift in Sources */,
 				69A6E6321FD73E4E00EADD42 /* CustomRecipeIconsCell.swift in Sources */,
@@ -498,6 +538,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		6902E74D1FD9964400FB8237 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				6902E74E1FD9964400FB8237 /* Model.xcdatamodel */,
+			);
+			currentVersion = 6902E74E1FD9964400FB8237 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 699A57C51FAE222A0056CDA8 /* Project object */;
 }

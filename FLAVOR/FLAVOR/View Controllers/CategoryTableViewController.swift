@@ -12,20 +12,25 @@ class CategoryTableViewController: UITableViewController{
 
     var feedItems: NSArray = NSArray()
     var categories: [String] = [String]()
+    var allCategoryRecipes: [RecipeModel] = [RecipeModel]()
+    var selectedCategory : String = String()
     
     // Properties
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
         
-        if feedItems.count > 0 {
-            for item in feedItems {
-                let recipe = item as! RecipeModel
-                categories.append(recipe.category!)
+            if feedItems.count > 0 {
+                for item in feedItems {
+                    let recipe = item as! RecipeModel
+                    categories.append(recipe.category!)
+                }
+                
+                categories = Array(Set(categories))
+                tableView.reloadData()
             }
-            
-            categories = Array(Set(categories))
-        }
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -42,24 +47,24 @@ class CategoryTableViewController: UITableViewController{
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return categories.count + 1
+        return categories.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         
-        if(indexPath.row == 0) {
+       /* if(indexPath.row == 0) {
             let cell = tableView.dequeueReusableCell(withIdentifier: "categoryTitleCell", for: indexPath) as! CustomCategoryTitleCell
             //cell.label.text = categories[indexPath.row]
             return cell
           
-        }
-        else {
+        }*/
+       // else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "categoryCell", for: indexPath) as! CustomCategoryCell
-            cell.label.text = categories[indexPath.row - 1]
+            cell.label.text = categories[indexPath.row ]
             return cell
-        }
+        //}
        
         // Configure the cell...
         
@@ -102,14 +107,39 @@ class CategoryTableViewController: UITableViewController{
     }
     */
 
-    /*
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+       
+            selectedCategory = categories[indexPath.row ]
+            self.performSegue(withIdentifier: "categorySegue", sender: self)
+        
+        
+        // Manually call segue to detail view controller
+        
+    }
+    
+    
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        // Get reference to the destination view controller
+        let detailVC  = segue.destination as! ListOfCategoriesTableViewController
+        // Set the property to the selected location so when the view for
+        // detail view controller loads, it can access that property to get the feeditem obj
+        detailVC.feedItems = feedItems
+        detailVC.selectedCategory = selectedCategory
+        // Get All the recipes from sleected category
+        for item in feedItems {
+            let recipe: RecipeModel = item as! RecipeModel
+            if recipe.category == selectedCategory {
+                allCategoryRecipes.append(recipe)
+            }
+        }
+        
+        detailVC.categoryRecipes = allCategoryRecipes
+        //selectedCategory = ""
+        allCategoryRecipes.removeAll()
+        
     }
-    */
 
 }

@@ -7,11 +7,12 @@
 //
 
 import UIKit
+import CoreData
 
-class RecipeTableViewController: UITableViewController {
+class RecipeTableViewController: UITableViewController, UIGestureRecognizerDelegate {
 
     var selectedRecipe : RecipeModel?
-    
+    var isFavourite : Bool = false
     override func viewDidLoad() {
         super.viewDidLoad()
         // Uncomment the following line to preserve selection between presentations
@@ -23,9 +24,209 @@ class RecipeTableViewController: UITableViewController {
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 44
         
-       
+        changeNavigationButtons()
+        
+        navigationController?.navigationBar.prefersLargeTitles = false
+        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true;
+        
+    }
+    
+    
+    func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+        if(navigationController!.viewControllers.count > 1){
+            self.navigationController?.navigationBar.prefersLargeTitles = true
+            return true
+        }
+        return false
+    }
+    
+    func changeNavigationItemsImage() {
+        let imageName: String
+        if isRecipeFavourite() {
+            imageName = "ic_favorites_orange"
+            isFavourite = true
+            
+        }
+        else {
+            imageName = "ic_favorite_orange"
+            isFavourite = false
+        }
+        self.navigationItem.rightBarButtonItem?.image = UIImage(named: imageName)
+    }
+    
+    
+    func changeNavigationButtons() {
+        //create a new button
+        let button: UIButton = UIButton(type: UIButtonType.custom)
+        //set image for button
+        let imageName: String
+        if isRecipeFavourite() {
+            imageName = "ic_favorites_orange"
+            isFavourite = true
+            
+        }
+        else {
+            imageName = "ic_favorite_orange"
+            isFavourite = false
+        }
+        button.setImage(UIImage(named: imageName), for: UIControlState.normal)
+        //add function for button
+        button.addTarget(self, action: #selector(addToFavourites(_:)), for: UIControlEvents.touchUpInside)
+        //set frame
+        let barButton = UIBarButtonItem(customView: button)
+        //assign button to navigationbar
+        self.navigationItem.rightBarButtonItem = barButton
+        
+        
+        //create a new button
+        let backButton: UIButton = UIButton(type: UIButtonType.custom)
+        //set image for button
+        backButton.setImage(UIImage(named: "ic_arrow_back_white"), for: UIControlState.normal)
+        //add function for button
+        backButton.addTarget(self, action: #selector(backToPreviousView(_:)), for: UIControlEvents.touchUpInside)
+        //set frame
+        let backBarButton = UIBarButtonItem(customView: backButton)
+        //assign button to navigationbar
+        self.navigationItem.leftBarButtonItem = backBarButton
+        
+        
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        changeNavigationButtons()
+        navigationController?.interactivePopGestureRecognizer?.delegate = self
+    }
+    
+@objc func backToPreviousView(_ button: UIButton) {
+    _ = navigationController?.popViewController(animated: true)
+    self.navigationController?.navigationBar.prefersLargeTitles = true
+    }
+    
+@objc func addToFavourites(_ button: UIButton) {
+    let recipeID = selectedRecipe?.id
+    //isFavourite = isRecipeFavourite()
+    
+    let button: UIButton = UIButton(type: UIButtonType.custom)
+    let imageName: String
+    //set image for button
+    if isFavourite == false {
+        imageName = "ic_favorites_orange"//`button.setImage(UIImage(named: ), for: UIControlState.normal)
+        isFavourite = true
+        self.saveToDataModel(id: Int(recipeID!)!)
+    }
+    else {
+        imageName = "ic_favorite_orange"//button.setImage(UIImage(named: "ic_favorite_orange"), for: UIControlState.normal)
+        isFavourite = false
+        removeDataFromModel(id: Int(recipeID!)!)
+    }
+    
+    //add function for button
+    button.setImage(UIImage(named: imageName), for: UIControlState.normal)
+    button.addTarget(self, action: #selector(addToFavourites(_:)), for: UIControlEvents.touchUpInside)
+    
+    let barButton = UIBarButtonItem(customView: button)
+    
+    
+    self.navigationItem.rightBarButtonItem = barButton
+    
+    
     }
 
+    func isRecipeFavourite() -> Bool {
+        guard let appDelegate =
+            UIApplication.shared.delegate as? AppDelegate else {
+                print("an error has occured")
+                return false
+        }
+        
+        // 1
+        let managedContext = appDelegate.persistentContainer.viewContext
+        // 2
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "FavRecipe")
+        
+        let result = try? managedContext.fetch(fetchRequest)
+        let resultData = result as! [FavRecipe]
+        
+        for object in resultData {
+            if(object.id == (Int((selectedRecipe?.id)!)!) ) {
+                return true
+            }
+        }
+        return false
+    }
+    
+    func removeDataFromModel(id: Int) {
+        guard let appDelegate =
+            UIApplication.shared.delegate as? AppDelegate else {
+                return
+        }
+        
+        // 1
+        let managedContext = appDelegate.persistentContainer.viewContext
+        // 2
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "FavRecipe")
+        
+        let result = try? managedContext.fetch(fetchRequest)
+        let resultData = result as! [FavRecipe]
+        
+        for object in resultData {
+            if(object.id == (Int((selectedRecipe?.id)!)!) ) {
+                managedContext.delete(object)
+            }
+        }
+        
+        do {
+            try managedContext.save()
+            print("deleted!")
+        } catch let error as NSError  {
+            print("Could not save \(error), \(error.userInfo)")
+        } catch {
+            
+        }
+        
+    }
+    
+    func saveToDataModel(id: Int) {
+        
+        guard let appDelegate =
+            UIApplication.shared.delegate as? AppDelegate else {
+                return
+        }
+        
+        // 1
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        // Check if it is already favourite
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "FavRecipe")
+        
+        let result = try? managedContext.fetch(fetchRequest)
+        let resultData = result as! [FavRecipe]
+        
+        for object in resultData {
+            if(object.id == Int((selectedRecipe?.id!)!)!) {
+                return
+            }
+        }
+        
+        // 2
+        let entity =
+            NSEntityDescription.entity(forEntityName: "FavRecipe",
+                                       in: managedContext)!
+        
+        let recipe = NSManagedObject(entity: entity,
+                                     insertInto: managedContext)
+        
+        // 3
+        recipe.setValue(id, forKeyPath: "id")
+        
+        // 4
+        do {
+            try managedContext.save()
+            //people.append(person)
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
